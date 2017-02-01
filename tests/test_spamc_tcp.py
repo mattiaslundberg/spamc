@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
 import os
 import sys
 import threading
@@ -9,12 +12,12 @@ except ImportError:
     import unittest as unittest2
 
 from mimetools import Message
-from cStringIO import StringIO
+from io import StringIO
 
 from spamc import SpamC
 from spamc.exceptions import SpamCError
 
-from _s import return_tcp
+from ._s import return_tcp
 
 
 class TestSpamCTCP(unittest2.TestCase):

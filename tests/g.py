@@ -1,3 +1,6 @@
+from __future__ import print_function
+from future import standard_library
+standard_library.install_aliases()
 import sys
 import signal
 import socket
@@ -6,7 +9,7 @@ import threading
 import gevent
 
 from mimetools import Message
-from cStringIO import StringIO
+from io import StringIO
 
 from gevent.pool import Pool
 from gevent.server import StreamServer
@@ -222,7 +225,7 @@ class SpamdTCP(StreamServer):
             self.rfile.close()
             self.wfile.close()
         except socket.timeout:
-            print "timed out connection xxx"
+            print("timed out connection xxx")
             self.close_connection = 1
             return
 

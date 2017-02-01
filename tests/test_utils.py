@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import os
 import sys
 # import errno
@@ -16,7 +17,7 @@ except ImportError:
 from spamc import SpamC
 from spamc.utils import load_backend
 
-from _s import return_unix
+from ._s import return_unix
 
 
 class TestSpamCUtils(unittest2.TestCase):

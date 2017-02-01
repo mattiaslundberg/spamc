@@ -19,6 +19,7 @@
 spamc: Python spamassassin spamc client library
 connections
 """
+from builtins import object
 import ssl
 import socket
 

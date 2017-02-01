@@ -21,12 +21,14 @@ spamc: Python spamassassin spamc client library
 Copyright 2015, Andrew Colin Kissa
 Licensed under AGPLv3+
 """
+from future import standard_library
+standard_library.install_aliases()
 import os
 import socket
 
 from mimetools import Message
-from cStringIO import StringIO
-from SocketServer import StreamRequestHandler, ThreadingTCPServer, \
+from io import StringIO
+from socketserver import StreamRequestHandler, ThreadingTCPServer, \
     ThreadingUnixStreamServer
 
 

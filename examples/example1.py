@@ -16,6 +16,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """Example program using spamc"""
+from __future__ import print_function
+from builtins import str
+from builtins import range
 import os
 import pprint
 
@@ -87,25 +90,25 @@ def runit():
     path = os.path.dirname(__file__)
     for test in FILES:
         filename = os.path.join(path, test['name'])
-        print "File => %s" % filename
+        print("File => %s" % filename)
         fileobj = open(filename)
-        print "=" * 10, "client.check()"
+        print("=" * 10, "client.check()")
         pprint.pprint(client.check(fileobj))
-        print "=" * 10, "client.symbols()"
+        print("=" * 10, "client.symbols()")
         pprint.pprint(client.symbols(fileobj))
-        print "=" * 10, "client.report()"
+        print("=" * 10, "client.report()")
         pprint.pprint(client.report(fileobj))
-        print "=" * 10, "client.report_ifspam()"
+        print("=" * 10, "client.report_ifspam()")
         pprint.pprint(client.report_ifspam(fileobj))
-        print "=" * 10, "client.process()"
+        print("=" * 10, "client.process()")
         pprint.pprint(client.process(fileobj))
-        print "=" * 10, "client.headers()"
+        print("=" * 10, "client.headers()")
         pprint.pprint(client.headers(fileobj))
-        print "=" * 10, "client.learn()"
+        print("=" * 10, "client.learn()")
         pprint.pprint(client.learn(fileobj, test['type']))
-        print "=" * 10, "client.tell()"
+        print("=" * 10, "client.tell()")
         pprint.pprint(client.tell(fileobj, 'forget'))
-        print "=" * 10, "client.revoke()"
+        print("=" * 10, "client.revoke()")
         pprint.pprint(client.revoke(fileobj))
 
 if __name__ == "__main__":

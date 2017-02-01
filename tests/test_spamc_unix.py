@@ -1,3 +1,7 @@
+from __future__ import print_function
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
 import os
 import sys
 import socket
@@ -12,12 +16,12 @@ except ImportError:
 import mock
 
 from mimetools import Message
-from cStringIO import StringIO
+from io import StringIO
 
 from spamc import SpamC
 from spamc.exceptions import SpamCError, SpamCTimeOutError
 
-from _s import return_unix
+from ._s import return_unix
 
 
 class TestSpamCUnix(unittest2.TestCase):
@@ -167,7 +171,7 @@ class TestSpamCUnix(unittest2.TestCase):
                 'bogus')
 
     def test_spamc_unix_revoke(self):
-        print self.spamc_unix.host
+        print(self.spamc_unix.host)
         with open(self.filename) as handle:
             result = self.spamc_unix.revoke(handle)
         self.assertIn('message', result)

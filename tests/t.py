@@ -1,8 +1,10 @@
+from __future__ import absolute_import
+from builtins import object
 import os
 
 from spamc import SpamC
 
-from g import HOST, PORT
+from .g import HOST, PORT
 # run_test_server('tcp')
 # run_test_server('unix')
 
@@ -39,7 +41,7 @@ class Scan(object):
                 socket_file=self.socket_file,
                 user='exim')
             func(res, self.filename)
-        run.func_name = func.func_name
+        run.__name__ = func.__name__
         return run
 
 
